@@ -61,8 +61,8 @@ LOG = logging.getLogger(__name__)
 class API(neutronv2_api):
     """contrail network API class Derived from nova neutronv2 API class."""
 
-    def __init__(self):
-        super(API, self).__init__()
+    def __init__(self,skip_policy_check=False):
+        super(API, self).__init__(skip_policy_check)
 
     def validate_networks(self, context, requested_networks, num_instances):
         """Validate that the tenant can use the requested networks.
